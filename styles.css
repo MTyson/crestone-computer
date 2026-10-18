@@ -308,31 +308,8 @@ section { padding: 3.5rem 0; }
 
 .services-note { margin-top: 1.75rem; font-weight: 600; color: var(--forest); }
 
-/* ---------- About ---------- */
-.about { background: var(--cream-dark); }
-.about-inner { display: grid; gap: 1.5rem; }
-.about-mark {
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--forest);
-  color: var(--ochre);
-  font-size: 2rem;
-  font-weight: 800;
-  border: 4px solid var(--ochre);
-}
-.about blockquote {
-  margin: 1.25rem 0 0;
-  padding: 0.25rem 0 0.25rem 1rem;
-  border-left: 4px solid var(--ochre);
-  color: var(--forest);
-  font-weight: 600;
-}
-
 /* ---------- Cross-link ---------- */
-.crosslink { padding: 2rem 0; background: var(--cream); }
+.crosslink { padding: 4rem 0; background: var(--cream-dark); }
 .crosslink-box {
   display: flex;
   flex-direction: column;
@@ -378,8 +355,6 @@ section { padding: 3.5rem 0; }
   .hero { padding: 5rem 0 5.5rem; }
   section { padding: 5rem 0; }
   .card-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .about-inner { grid-template-columns: auto 1fr; gap: 2.5rem; align-items: start; }
-  .about-mark { width: 120px; height: 120px; font-size: 2.8rem; }
   .crosslink-box { flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem; }
   .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; }
 }
