@@ -17,6 +17,8 @@
   --red-dark: #873722;
   --ink: #1f2a22;
   --muted: #55625a;
+  --line: #e3dccb;
+  --paper: #fffefb;
 
   /* Type */
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -186,31 +188,92 @@ a:hover { color: var(--red-dark); }
 }
 .hero h1 { color: var(--cream); max-width: 16ch; }
 .hero h1 em { font-style: normal; color: var(--ochre); }
-.hero .eyebrow { color: var(--ochre); }
+.hero .eyebrow { color: var(--ochre); line-height: 1.5; }
+.hero .eyebrow .dot { color: var(--sage); margin-inline: 0.35em; }
 .hero-sub {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   max-width: 38rem;
-  color: rgba(250, 249, 246, 0.9);
+  color: rgba(250, 249, 246, 0.92);
   margin-bottom: 1.75rem;
 }
 .hero-ctas { display: flex; flex-direction: column; gap: 0.85rem; max-width: 28rem; }
 
-.intro-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-  margin-top: 2rem;
-  padding: 0.9rem 1.25rem;
-  background: var(--cream);
-  color: var(--forest);
-  border-radius: var(--radius);
-  border-left: 8px solid var(--red);
-  box-shadow: var(--shadow);
+/* Hero grid: single column on mobile (copy, bio, offer); two columns >= 900px */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
 }
-.intro-price { font-size: 2.6rem; font-weight: 800; line-height: 1; color: var(--red); letter-spacing: -0.03em; }
-.intro-text { display: flex; flex-direction: column; line-height: 1.3; }
-.intro-text strong { font-size: 1.05rem; }
-.intro-text span { font-size: 0.88rem; color: var(--muted); }
+.hero-main { grid-area: main; }
+.bio-card { grid-area: card; }
+.hero-offer { grid-area: offer; }
+.hero-grid {
+  grid-template-areas:
+    "main"
+    "card"
+    "offer";
+}
+
+/* $50 callout: warm paper card with a double ochre/forest flyer-style border */
+.intro-badge {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.25rem 1.4rem;
+  background: var(--paper);
+  color: var(--forest);
+  border: 2px solid var(--ochre);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 0 0 4px var(--paper),
+    inset 0 0 0 5px var(--forest),
+    0 10px 28px rgba(0, 0, 0, 0.28);
+}
+.intro-price {
+  flex: none;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--red);
+  letter-spacing: -0.04em;
+}
+.intro-text strong { display: block; font-size: 1.1rem; line-height: 1.3; margin-bottom: 0.35rem; }
+.intro-text p { margin: 0; font-size: 0.92rem; line-height: 1.55; color: var(--muted); }
+
+/* Personal bio card */
+.bio-card {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+.bio-photo {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--sage-dark), var(--forest)); /* shown until photo loads */
+  margin-bottom: 1.1rem;
+}
+.bio-photo img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: center 32%;
+}
+.bio-title { font-size: 1.35rem; margin: 0 0 0.5rem; padding-inline: 0.25rem; }
+.bio-card p { font-size: 0.95rem; margin: 0 0 1rem; padding-inline: 0.25rem; color: var(--muted); }
+.bio-badges { list-style: none; margin: 0; padding: 0 0.25rem 0.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.bio-badges li {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--forest);
+  background: var(--cream-dark);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+}
 
 /* ---------- Sections ---------- */
 section { padding: 3.5rem 0; }
@@ -319,6 +382,24 @@ section { padding: 3.5rem 0; }
   .about-mark { width: 120px; height: 120px; font-size: 2.8rem; }
   .crosslink-box { flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem; }
   .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    grid-template-areas:
+      "main card"
+      "offer card";
+    column-gap: 3rem;
+    row-gap: 2rem;
+  }
+  .hero-offer { align-self: end; }
+  .bio-photo img { height: 260px; }
+}
+
+@media (max-width: 479px) {
+  .intro-badge { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .bio-photo img { height: 240px; }
 }
 
 @media (min-width: 1000px) {
