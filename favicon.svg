@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Crestone Computer">
+  <defs>
+    <clipPath id="tile"><rect width="64" height="64" rx="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <!-- Forest tile -->
+    <rect width="64" height="64" fill="#14251a"/>
+    <!-- Sun / moon glow -->
+    <circle cx="48" cy="17" r="5" fill="#e0bd85"/>
+    <!-- Crestone Peak & Needle: twin summits -->
+    <path d="M4 52 L24 12 L33 29 L40 20 L60 52 Z" fill="#c99e55"/>
+    <!-- Snow caps -->
+    <path d="M24 12 L18.5 23 L23 21 L26 25 L29 21 Z" fill="#faf9f6"/>
+    <path d="M40 20 L35.5 28 L39 26.5 L41.5 29 L44 26 Z" fill="#faf9f6" opacity=".9"/>
+    <!-- Foreground sage ridge -->
+    <path d="M0 64 V50 Q14 43 30 50 T64 47 V64 Z" fill="#728c6e"/>
+    <path d="M0 64 V57 Q16 52 32 57 T64 55 V64 Z" fill="#4f6a4c"/>
+  </g>
+</svg>
